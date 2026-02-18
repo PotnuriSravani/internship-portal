@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internship Portal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            padding: 30px;
+        }
+        .card {
+            background: rgba(255,255,255,0.95);
+            color: black;
+            width: 40%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        button {
+            padding: 8px 15px;
+            background: #5a67d8;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #434190;
+        }
+        a {
+            text-decoration: none;
+            color: #ffd700;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Available Internships</h1>
+<a href="/login">Admin Login</a>
+
+{% for internship in internships %}
+<div class="card">
+    <h3>{{ internship[1] }}</h3>
+    <p><b>Company:</b> {{ internship[2] }}</p>
+    <p><b>Location:</b> {{ internship[3] }}</p>
+    <a href="/apply/{{ internship[0] }}">
+        <button>Apply Now</button>
+    </a>
+</div>
+{% endfor %}
+
+</body>
+</html>

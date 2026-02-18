@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applications</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .container {
+            width: 85%;
+            margin: auto;
+            padding-top: 30px;
+        }
+        h1 {
+            text-align: center;
+        }
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            background: white;
+            color: black;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #5a67d8;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        button {
+            padding: 6px 12px;
+            background: #5a67d8;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #434190;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Applications</h1>
+
+    <a href="/">Home</a> |
+    <a href="/post">Post Internship</a> |
+    <a href="/logout">Logout</a>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Internship</th>
+            <th>Resume</th>
+        </tr>
+
+        {% for app in data %}
+        <tr>
+            <td>{{ app[0] }}</td>
+            <td>{{ app[1] }}</td>
+            <td>{{ app[2] }}</td>
+            <td>
+                <a href="{{ url_for('uploaded_file', filename=app[3]) }}">
+                    <button>View</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
