@@ -33,5 +33,6 @@ This application allows students to apply for internships and enables administra
 
 ---
 
-## 📁 Project Structure
+
+
 
